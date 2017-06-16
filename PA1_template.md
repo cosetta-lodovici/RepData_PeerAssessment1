@@ -42,12 +42,21 @@ tots <- setNames(aggregate(activity$steps,by=list(activity$date), sum, na.rm =TR
 
 
 ```r
-# 2. Make a histogram of the total number of steps taken each day
-toth <- ggplot(data=tots, aes(x=date, y=steps)) + geom_bar(stat='identity') + scale_x_date(date_breaks = '1 week') + theme(axis.text.x = element_text(angle=90, vjust=0.5)) + labs(title="Total number steps by day")
+# 2. Make a histogram of the total number of steps taken each day (If you do not understand the difference between a histogram and a barplot, research the difference between them.)
+toth <- ggplot(data=tots, aes(steps)) + geom_histogram(breaks=seq(0,25000,by=5000), alpha=.5, col="white") + labs(title="Histogram: Total number steps per day") + geom_rug()
 print(toth)
 ```
 
 ![](figures/histogram_steps_by_day-1.png)<!-- -->
+
+
+```r
+# 2. Make a barplot
+totbp <- ggplot(data=tots, aes(x=date, y=steps)) + geom_bar(stat='identity') + scale_x_date(date_breaks = '1 week') + theme(axis.text.x = element_text(angle=90, vjust=0.5)) + labs(title="Barplot: Total number steps by day")
+print(totbp)
+```
+
+![](figures/barplot_steps_by_day-1.png)<!-- -->
 
 
 ```r
@@ -130,11 +139,21 @@ summary(activityc)
 
 totsc <- setNames(aggregate(activityc$steps,by=list(activityc$date), sum), c("date","steps"))
 
-tothc <- ggplot(data=totsc, aes(x=date, y=steps)) + geom_bar(stat='identity') + scale_x_date(date_breaks = '1 week') + theme(axis.text.x = element_text(angle=90, vjust=0.5)) + labs(title="Total number steps by day")
+tothc <- ggplot(data=totsc, aes(steps)) + geom_histogram(breaks=seq(0,25000,by=5000), alpha=.5, col="white") + labs(title="Histogram: Total number steps per day with imputed values") + geom_rug()
 print(tothc)
 ```
 
 ![](figures/histogram_steps_by_day_with_imputed_values-1.png)<!-- -->
+
+
+```r
+# Make a barplot
+
+totbpc <- ggplot(data=totsc, aes(x=date, y=steps)) + geom_bar(stat='identity') + scale_x_date(date_breaks = '1 week') + theme(axis.text.x = element_text(angle=90, vjust=0.5)) + labs(title="Barplot: Total number steps by day with imputed values")
+print(totbpc)
+```
+
+![](figures/barplot_steps_by_day_with_imputed_values-1.png)<!-- -->
 
 
 ```r
