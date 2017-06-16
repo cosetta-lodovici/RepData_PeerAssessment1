@@ -45,7 +45,7 @@ toth <- ggplot(data=tots, aes(x=date, y=steps)) + geom_bar(stat='identity') + sc
 print(toth)
 ```
 
-![](PA1_template_files/figure-html/histogram steps by day-1.png)<!-- -->
+![pippo](PA1_template_files/figure-html/histogram steps by day-1.png)
 
 
 ```r
