@@ -1,5 +1,7 @@
 # Reproducible Research: Peer Assessment 1
 
+
+
 ## Load library
 
 ```r
@@ -45,7 +47,7 @@ toth <- ggplot(data=tots, aes(x=date, y=steps)) + geom_bar(stat='identity') + sc
 print(toth)
 ```
 
-![pippo](PA1_template_files/figure-html/histogram steps by day-1.png)
+![](figures/histogram_steps_by_day-1.png)<!-- -->
 
 
 ```r
@@ -66,7 +68,7 @@ meanl <- ggplot(data=meansi, aes(x=interval, y=steps)) + geom_line() +  labs(tit
 print(meanl)
 ```
 
-![](PA1_template_files/figure-html/plot steps by interval-1.png)<!-- -->
+![](figures/plot_steps_by_interval-1.png)<!-- -->
 
 Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps ?
 
@@ -132,7 +134,7 @@ tothc <- ggplot(data=totsc, aes(x=date, y=steps)) + geom_bar(stat='identity') + 
 print(tothc)
 ```
 
-![](PA1_template_files/figure-html/histogram steps by day with imputed values-1.png)<!-- -->
+![](figures/histogram_steps_by_day_with_imputed_values-1.png)<!-- -->
 
 
 ```r
@@ -150,23 +152,21 @@ What is the impact of imputing missing data on the estimates of the total daily 
 ```r
 totall <- setNames(cbind(tots,totsc$steps), c("date","stepsna","stepswna"))
 #only day impacted 
-kable(subset(totall,(stepswna-stepsna)>0), caption="Days impacted by imputing missing data", col.names = c("date","total steps with NA","total steps after imputing missing data"))
+kable(subset(totall,(stepswna-stepsna)>0), format = "markdown", caption="Days impacted by imputing missing data", col.names = c("date","total steps with NA","total steps after imputing missing data"))
 ```
 
 
 
-Table: Days impacted by imputing missing data
-
-     date          total steps with NA   total steps after imputing missing data
----  -----------  --------------------  ----------------------------------------
-1    2012-10-01                      0                                  10766.19
-8    2012-10-08                      0                                  10766.19
-32   2012-11-01                      0                                  10766.19
-35   2012-11-04                      0                                  10766.19
-40   2012-11-09                      0                                  10766.19
-41   2012-11-10                      0                                  10766.19
-45   2012-11-14                      0                                  10766.19
-61   2012-11-30                      0                                  10766.19
+|   |date       | total steps with NA| total steps after imputing missing data|
+|:--|:----------|-------------------:|---------------------------------------:|
+|1  |2012-10-01 |                   0|                                10766.19|
+|8  |2012-10-08 |                   0|                                10766.19|
+|32 |2012-11-01 |                   0|                                10766.19|
+|35 |2012-11-04 |                   0|                                10766.19|
+|40 |2012-11-09 |                   0|                                10766.19|
+|41 |2012-11-10 |                   0|                                10766.19|
+|45 |2012-11-14 |                   0|                                10766.19|
+|61 |2012-11-30 |                   0|                                10766.19|
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
@@ -189,4 +189,4 @@ ggdaytype <- ggplot(meansdt, aes(x=interval,y=steps)) + facet_grid(daytype ~ .) 
 print(ggdaytype)
 ```
 
-![](PA1_template_files/figure-html/panel plot daytype-1.png)<!-- -->
+![](figures/panel_plot_daytype-1.png)<!-- -->

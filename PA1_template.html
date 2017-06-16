@@ -210,12 +210,11 @@ medc &lt;- median(totsc$steps)</code></pre>
 <p>What is the impact of imputing missing data on the estimates of the total daily number of steps?</p>
 <pre class="r"><code>totall &lt;- setNames(cbind(tots,totsc$steps), c(&quot;date&quot;,&quot;stepsna&quot;,&quot;stepswna&quot;))
 #only day impacted 
-kable(subset(totall,(stepswna-stepsna)&gt;0), caption=&quot;Days impacted by imputing missing data&quot;, col.names = c(&quot;date&quot;,&quot;total steps with NA&quot;,&quot;total steps after imputing missing data&quot;))</code></pre>
+kable(subset(totall,(stepswna-stepsna)&gt;0), format = &quot;markdown&quot;, caption=&quot;Days impacted by imputing missing data&quot;, col.names = c(&quot;date&quot;,&quot;total steps with NA&quot;,&quot;total steps after imputing missing data&quot;))</code></pre>
 <table>
-<caption>Days impacted by imputing missing data</caption>
 <thead>
 <tr class="header">
-<th></th>
+<th align="left"></th>
 <th align="left">date</th>
 <th align="right">total steps with NA</th>
 <th align="right">total steps after imputing missing data</th>
@@ -223,49 +222,49 @@ kable(subset(totall,(stepswna-stepsna)&gt;0), caption=&quot;Days impacted by imp
 </thead>
 <tbody>
 <tr class="odd">
-<td>1</td>
+<td align="left">1</td>
 <td align="left">2012-10-01</td>
 <td align="right">0</td>
 <td align="right">10766.19</td>
 </tr>
 <tr class="even">
-<td>8</td>
+<td align="left">8</td>
 <td align="left">2012-10-08</td>
 <td align="right">0</td>
 <td align="right">10766.19</td>
 </tr>
 <tr class="odd">
-<td>32</td>
+<td align="left">32</td>
 <td align="left">2012-11-01</td>
 <td align="right">0</td>
 <td align="right">10766.19</td>
 </tr>
 <tr class="even">
-<td>35</td>
+<td align="left">35</td>
 <td align="left">2012-11-04</td>
 <td align="right">0</td>
 <td align="right">10766.19</td>
 </tr>
 <tr class="odd">
-<td>40</td>
+<td align="left">40</td>
 <td align="left">2012-11-09</td>
 <td align="right">0</td>
 <td align="right">10766.19</td>
 </tr>
 <tr class="even">
-<td>41</td>
+<td align="left">41</td>
 <td align="left">2012-11-10</td>
 <td align="right">0</td>
 <td align="right">10766.19</td>
 </tr>
 <tr class="odd">
-<td>45</td>
+<td align="left">45</td>
 <td align="left">2012-11-14</td>
 <td align="right">0</td>
 <td align="right">10766.19</td>
 </tr>
 <tr class="even">
-<td>61</td>
+<td align="left">61</td>
 <td align="left">2012-11-30</td>
 <td align="right">0</td>
 <td align="right">10766.19</td>
